@@ -1,0 +1,35 @@
+# Editors
+.idea
+.vscode/*
+*.code-workspace
+
+# Grunt
+node_modules/
+deploy/
+package-lock.json
+
+# Composer
+vendor/
+composer.lock
+
+# Sass
+.sass-cache/
+
+# OS X metadata
+.DS_Store
+
+# Windows junk
+Thumbs.db
+
+# wp-env config
+.wp-env.override.json
+
+# Ignore all log files except for .htaccess
+/logs/*
+!/logs/.htaccess
+
+# Volumes mounted by Docker containers
+docker/bin/jt
+docker/data
+docker/wordpress
+docker/logs
