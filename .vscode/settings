@@ -1,0 +1,9 @@
+{
+    "phpsab.executablePathCS": "/Users/shoheitanaka/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "phpsab.executablePathCBF": "/Users/shoheitanaka/.composer/vendor/squizlabs/php_codesniffer/bin/phpcbf",
+    "phpsab.standard": "WordPress",
+    "[php]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "valeryanm.vscode-phpsab"
+    }
+}

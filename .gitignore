@@ -1,6 +1,6 @@
 # Editors
 .idea
-.vscode/*
+#.vscode/*
 *.code-workspace
 
 # Grunt
