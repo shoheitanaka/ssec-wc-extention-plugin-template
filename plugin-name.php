@@ -73,15 +73,15 @@ if ( is_woocommerce_active() ) {
 		}
 	}
 
-	/**
-	 * Main instance of Plugin_Name.
-	 *
-	 * @return Plugin_Name
-	 */
-	function plugin_name() {
-		return Plugin_Name::instance();
-	}
+	add_action( 'plugins_loaded', 'plugin_name_init', 10 );
 
-	// Global for backwards compatibility.
-	$GLOBALS['plugin_name'] = plugin_name();
+	/**
+	 * Initialize the plugin.
+	 *
+	 * Loads the text domain and initializes the main plugin class.
+	 */
+	function plugin_name_init() {
+		load_plugin_textdomain( 'plugin-name', false, plugin_basename( __DIR__ ) . '/i18n' );
+		Plugin_Name::instance();
+	}
 }

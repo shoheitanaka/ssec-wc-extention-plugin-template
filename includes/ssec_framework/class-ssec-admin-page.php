@@ -8,6 +8,9 @@
 
 namespace SSEC\Admin;
 
+use Automattic\WooCommerce\Internal\Admin\Loader;
+
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -97,20 +100,7 @@ if ( ! class_exists( 'SSEC\Admin\SSEC_Admin_Page' ) ) :
 		 * @since 1.0.0
 		 */
 		public function ssec_admin_overview_page_callback() {
-			?>
-			<div class="wrap">
-				<div id="root">
-					<div class="ssec-admin-container">
-						<div class="ssec-admin__header">
-							<div class="ssec-admin__header-wrapper">
-								<h1><?php echo esc_html( $this->options['page_title'] ?? 'SSEC Overview' ); ?></h1>
-							</div>
-						</div>
-						<div class="ssec-admin__content">
-							<div id="ssec-admin-homescreen">TEST</div>
-						</div>
-					</div>
-			<?php
+			Loader::page_wrapper();
 		}
 
 		/**
@@ -120,14 +110,14 @@ if ( ! class_exists( 'SSEC\Admin\SSEC_Admin_Page' ) ) :
 		 */
 		public function ssec_admin_register_scripts() {
 			$script_path       = PLUGIN_NAME_PATH . '/assets/build/ssec/admin/overview.js';
-			$script_asset_path = dirname( PLUGIN_NAME_PATH ) . '/assets/build/ssec/admin/overview.asset.php';
+			$script_asset_path = PLUGIN_NAME_PATH . '/assets/build/ssec/admin/overview.asset.php';
 			$script_asset      = file_exists( $script_asset_path )
 			? require $script_asset_path
 			: array(
 				'dependencies' => array(),
 				'version'      => filemtime( $script_path ),
 			);
-			$script_url        = plugins_url( $script_path, PLUGIN_NAME_PATH );
+			$script_url        = PLUGIN_NAME_URL . 'assets/build/ssec/admin/overview.js';
 
 			wp_register_script(
 				$this->menu_slug,

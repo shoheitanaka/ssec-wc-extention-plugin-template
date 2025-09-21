@@ -1,25 +1,25 @@
 import './index.scss';
-import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
+import { render } from '@wordpress/element';
 
 const SsecOverviewPage = () => {
     return (
-        <div className="ssec-overview-page">
-            <h1>{ __( 'SSEC Overview', 'ssec' ) }</h1>
-            <p>{ __( 'Welcome to the SSEC admin overview page.', 'ssec' ) }</p>
+        <div className="ssec-admin-layout">
+            <div className="ssec-admin__header">
+                <div className="ssec-admin__header-wrapper">
+                    <h1>{ __( 'SSEC Overview', 'plugin-name' ) }</h1>
+                </div>
+            </div>
+            <div className="ssec-admin__content">
+                <p>{ __( 'Welcome to the SSEC admin overview page.', 'plugin-name' ) }</p>
+            </div>
         </div>
     );
 };
 
-addFilter( 'woocommerce_admin_pages_list', 'admin-overview', ( pages ) => {
-	pages.push( {
-		container: SsecOverviewPage,
-		path: '/ssec-admin-overview',
-		breadcrumbs: [ __( 'SSEC Overview', 'ssec' ) ],
-        navArgs: {
-            id: 'ssec-admin-overview',
-        }
-    } );
-
-	return pages;
-} );
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.querySelector('#root');
+    if (root) {
+        render(<SsecOverviewPage />, root);
+    }
+});
