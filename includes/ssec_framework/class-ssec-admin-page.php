@@ -103,7 +103,7 @@ if ( ! class_exists( 'SSEC\Admin\SSEC_Admin_Page' ) ) :
 					<div class="ssec-admin-container">
 						<div class="ssec-admin__header">
 							<div class="ssec-admin__header-wrapper">
-								<h1 data-wp-component="Text"><?php echo esc_html( $this->options['page_title'] ?? 'SSEC Overview' ); ?></h1>
+								<h1><?php echo esc_html( $this->options['page_title'] ?? 'SSEC Overview' ); ?></h1>
 							</div>
 						</div>
 						<div class="ssec-admin__content">
